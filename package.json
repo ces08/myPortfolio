@@ -6,8 +6,9 @@
 
   "homepage": "https://ces08.github.io/repo-name",
   "scripts": {
+    "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
 
   "dependencies": {
