@@ -5,30 +5,39 @@
 
 @theme{
   --color-main: #7ca6fc;
-  --color-accent: #FFCD70;
-  --color-accent-hover: #FFB224;
+  --color-accent: #7FD0E7;
+  --color-dark-accent: #32B6DB;
+  --color-accent-hover: #7FD0E7;
   --color-file-tan: #F4EEE9;
-  --color-gray-theme: #F4F3F2;
+  --color-gray-theme: #D0D0D1;
   --color-sub: #d1ddf5;
+  --color-gray: #f2f2f2;
+  --color-black: #494949;
 
   --btn-pad: 5px 10px;
 
 }
 
 html{ @apply 
-  bg-gray-theme
+  bg-gray-theme;
 }
 
 .main-container{ @apply 
-  flex 
-  items-center 
-  justify-center 
+
 
   w-screen 
   h-screen 
+  
+}
+.project-sub{ @apply
+  flex
+  justify-center
+  items-center
+  w-full
+
 }
 .title{
-  @apply font-extrabold text-8xl
+  @apply font-bold text-8xl
 }
 
 .subtitle{
@@ -47,5 +56,5 @@ html{ @apply
 }
 
 .nav-item{
-  @apply inline-block text-black hover:text-main cursor-pointer;
+  @apply inline-block text-black dark:text-gray hover:text-accent-hover cursor-pointer;
 }
