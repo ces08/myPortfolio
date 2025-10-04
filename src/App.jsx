@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 
 import './App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from './components/Home';
 import Projects from './components/Projects';
 import ProjectPage from './components/ProjectPage';
@@ -13,7 +13,7 @@ function App() {
   return (
     
       
-    <BrowserRouter>
+    <HashRouter>
     <div className = "main-container relative parent-box p-5">
         <div className="w-full h-full border-2 box-border border-[#3b3b3b] overflow-x-hidden rounded-2xl">
           <Navbar />
@@ -24,7 +24,7 @@ function App() {
           </Routes>
         </div>
     </div>
-  </BrowserRouter>
+  </HashRouter>
   )
 }
 
