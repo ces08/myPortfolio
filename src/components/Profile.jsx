@@ -1,37 +1,52 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin, faGithub} from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin} from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope} from '@fortawesome/free-solid-svg-icons'
-
+import headshot from "../assets/headshot.jpg"
 
 export default function Profile(){
     return(
-        <section id = 'profile' className = 'main-container relative'>
-                <div id = 'business-card' className = 'bg-white rounded-lg w-100 h-60 flex flex-row justify-center items-center p-10 gap-10 border-4 z-10'>
-                    <img src = './src/assets/pfp.png' className = 'w-30 h-30'></img>
-                    <div id = 'card-right'>
-                        <h4 className = 'text-main font-bold text-xl'>  Christine Song </h4>
-                        <p>  B.S in CS and AMS </p>
-                        <hr className = 'border-1 text-main my-3'/>
-                        <div id = 'contactList' className = 'flex flex-col' >
-                            <ContactItem faIcon = {faEnvelope} contactInfo = "christinesong08@gmail.com" contactLink = 'mailto:christinesong08@gmail.com'/>
-                            <ContactItem faIcon = {faLinkedin} contactInfo = "www.linkedin.com/in/cesong/" contactLink = 'https://www.linkedin.com/in/cesong/'/>
-                            <ContactItem faIcon = {faGithub} contactInfo = "ces08" contactLink = 'https://github.com/ces08'/>
-                        </div>
+        <div className = "flex flex-col justify-center items-center w-full gap-10 my-20">
+            <section className = 'flex w-9/12 justify-center items-center gap-10'>
+                <img src = {headshot} className = "rounded-2xl w-1/3"></img>
+                <div className = 'flex flex-col gap-5'>
+                    <div className = 'text-4xl '>Hi, I'm Christine!</div>
+                    <div>
+                        I'm a third-year student at Stony Brook University studying Computer Science and Applied Mathematics & Statistics.
+                        <br/>
+                        <br/>
+                        I've always loved creating — starting with crafts and drawings, slowly adding details until a project came to life. 
+                        That passion led me to software development where I could combine creativity
+                        and problem-solving to build tools that make real impacts.
+                    
+                        <br/>
+                        <br/>
+                        I've explored a variety of roles (from mobile and web development to machine learning)
+                        not only to gain broader perspective and discipline knowledge, but also because <span className = "text-dark-accent font-semibold">I genuinely enjoy stepping 
+                        into new challenges</span>. Each experience has taught me something new, 
+                        sharpened my skills, and reinforced my drive for building impactful software.
+                    
                     </div>
                 </div>
-                <img src = './src/assets/mouse.png' className = 'w-100 absolute right-0'/>
-                <img src = './src/assets/paperclips.png' className = 'w-20 absolute left-100 bottom-20'/>
-                <img src = './src/assets/eraser.png' className = 'w-30 absolute left-10 top-30'/>
-
-        </section>
+            </section>
+            <section className = 'flex gap-10 items-center border-3 border-gray dark:border-black px-10 py-5 rounded-2xl'>
+                <div className = "text-center font-semibold text-2xl" >Get in Touch!</div>
+                <div id = 'contactList' className = 'flex flex-col' >
+                    <ContactItem faIcon = {faEnvelope} contactInfo = "christinesong08@gmail.com" contactLink = 'mailto:christinesong08@gmail.com'/>
+                    <ContactItem faIcon = {faLinkedin} contactInfo = "www.linkedin.com/in/cesong/" contactLink = 'https://www.linkedin.com/in/cesong/'/>
+                </div>
+            </section>
+        </div>
+        
+        
+       
     )
 }
 
 function ContactItem({faIcon, contactInfo, contactLink}){
     return(
         <div className = 'contact-box flex gap-2 py-1 items-center hover:scale-105 cursor-pointer'>
-            <FontAwesomeIcon icon = {faIcon} className = 'text-main text-2xl'/>
-            <a href = {contactLink} target = '_blank' className = '!text-black text-xs '>{contactInfo}</a>
+            <FontAwesomeIcon icon = {faIcon} className = 'text-accent text-2xl'/>
+            <a href = {contactLink} target = '_blank' className = 'text-black dark:text-gray'>{contactInfo}</a>
         </div>
     )
 }
