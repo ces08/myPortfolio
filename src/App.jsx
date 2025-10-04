@@ -18,8 +18,8 @@ function App() {
         <div className="w-full h-full border-2 box-border border-[#3b3b3b] overflow-x-hidden rounded-2xl">
           <Navbar />
           <Routes>
-            <Route path="/" element={<Projects />} />
-            <Route path="/:id" element={<ProjectPage />} />
+            <Route index element={<Projects />} />
+            <Route path=":id" element={<ProjectPage />} />
             <Route path="contact" element={<Profile />} />
           </Routes>
         </div>

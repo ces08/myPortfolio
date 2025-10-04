@@ -35,7 +35,7 @@ export default function Projects(){
 export function ProjectPreview({id, img_path, img_name, year, desc}){
     return(
         <>
-        <Link to = {`/${id}`} className = "cor transform hover:scale-101 transition duration-200">
+        <Link to = {`${id}`} className = "cor transform hover:scale-101 transition duration-200">
             <img src = {img_path} alt = {img_name} className = "rounded-2xl"/>
             <div className = " text-black dark:text-white text-2xl font-semibold  p-1 hover:text-accent">{img_name} <span className= " font-light">({year})</span></div>
              <div className="text-black dark:text-white">{desc}</div>
