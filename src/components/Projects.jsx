@@ -5,12 +5,14 @@ export default function Projects(){
     return(
         <div className = "grid grid-cols-2 gap-10 m-10">
 
-            {projects.map((project)=>(
+            {Object.entries(projects).map(([id, project])=>(
                 <ProjectPreview 
-                    key = {project.img_path}
+                    key = {id}
+                    id = {id}
                     img_path = {project.img_path}
                     img_name = {project.img_name}
                     year = {project.year}
+                    desc = {project.desc}
                 />
             )) }
             
@@ -18,12 +20,13 @@ export default function Projects(){
     )
 }
 
-export function ProjectPreview({img_path, img_name, year}){
+export function ProjectPreview({id, img_path, img_name, year, desc}){
     return(
         <>
-        <Link to = {`/projects/${img_name}`} className = "cor transform hover:scale-101 transition duration-200">
+        <Link to = {`/projects/${id}`} className = "cor transform hover:scale-101 transition duration-200">
             <img src = {img_path} alt = {img_name} className = "rounded-2xl"/>
-            <div className = "text-2xl font-semibold text-[#494949] bg-gray p-1 hover:text-accent text-center">{img_name} ({year})</div>
+            <div className = " text-black dark:text-white text-2xl font-semibold  p-1 hover:text-accent">{img_name} <span className= " font-light">({year})</span></div>
+             <div className="text-black dark:text-white">{desc}</div>
         </Link>
         </>
     )
