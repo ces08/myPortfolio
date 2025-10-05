@@ -7,7 +7,7 @@ export default function Profile(){
     return(
         <div className = "flex flex-col justify-center items-center w-full gap-10 my-20">
             <section className = 'flex w-9/12 justify-center items-center gap-10'>
-                <img src = {headshot} className = "rounded-2xl w-1/3"></img>
+                <img src = {headshot} className = "rounded-2xl w-1/3 shadow"></img>
                 <div className = 'flex flex-col gap-5 text-quasi-black dark:text-gray-back'>
                     <div className = 'text-4xl '>Hi, I'm Christine!</div>
                     <div>
@@ -28,7 +28,7 @@ export default function Profile(){
                     </div>
                 </div>
             </section>
-            <section className = 'flex gap-10 items-center border-2 border-quasi-black dark:border-gray-back px-10 py-5 rounded-2xl'>
+            <section className = 'flex gap-10 items-center bg-gray-back dark:bg-quasi-black px-10 py-5 shadow rounded-2xl'>
                 <div className = "text-center font-semibold text-2xl text-quasi-black dark:text-gray-back" >Get in Touch!</div>
                 <div id = 'contactList' className = 'flex flex-col' >
                     <ContactItem faIcon = {faEnvelope} contactInfo = "christinesong08@gmail.com" contactLink = 'mailto:christinesong08@gmail.com'/>

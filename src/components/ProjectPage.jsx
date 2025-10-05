@@ -12,6 +12,9 @@ export default function ProjectPage() {
   const present = project.presentation;
   const demo_vid = project.demo;
   const longer_desc = project.longer_desc;
+  const pdf = project.pdf ?? null;
+
+  console.log(pdf);
 
 
   return (
@@ -65,6 +68,16 @@ export default function ProjectPage() {
                 </section>
           ))}
           </div>
+          {pdf && (
+            <>
+              <Header text="REPORT" />
+              <section className="flex justify-center items-center w-full">
+                <div className="flex-col w-10/12">
+                  <iframe src={pdf} height="600px" width = '100%' className = 'rounded-2xl'/>
+                </div>
+              </section>
+            </>
+          )}
         </div>
         
 

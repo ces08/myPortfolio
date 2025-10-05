@@ -26,12 +26,15 @@ import nook_shows from "./assets/projects/nook/nook_shows.png";
 import nook_add from "./assets/projects/nook/nook_add.png";
 import nook_watchlist from "./assets/projects/nook/nook_watchlist.png";
 
+import report_pdf from "./assets/projects/pubLib/Nassau_PubLib_Report.pdf";
 
 
 
 import phreddit_demo from './assets/projects/videos/phreddit_demo.mov';
 import flyspy_demo from './assets/projects/videos/flyspy_demo.mov';
 import nook_demo from "./assets/projects/videos/nook_demo.mov";
+
+
 
 export const projects = {
   phreddit:
@@ -113,9 +116,9 @@ export const projects = {
       tags: ["Figma"],
       desc: "A redesigned UI for Nassau County's public library app.",
       
-      longer_desc: `The Nassau public libraries serves as a hub for student study sessions, 
+      longer_desc: `The Nassau public libraries serve as a hub for student study sessions, 
                     community gatherings, and lessons for new hobbies. Many patrons rely on the library's 
-                    mobile app to access services, yet the existing user experience limits flexibility, 
+                    mobile app to access its services, yet the existing user experience limits flexibility and 
                     overwhelms users, demonstrating a need for an improved interface.
 
                     To approach this redesign, I analyzed other library apps and popular mobile interfaces such as 
@@ -140,6 +143,7 @@ export const projects = {
         { img: pubLib_fees, caption: "Fee management page highlighting outstanding fines and a visual spread of borrowed books" },
         { img: pubLib_info, caption: "Information page provides hours, contact, and services all in one place" },
       ],
+      pdf: report_pdf,
     },
   nook:
     {

@@ -6,10 +6,10 @@ export default function Projects(){
         <div className = "flex flex-col">
         <section className = 'flex'>
             <div className = 'title-container p-10 gap-5 '>
-                <div className = "text-8xl font-semibold text-[#7FD0E7] font-sans">
+                <div className = "text-7xl font-semibold text-[#7FD0E7] font-sans">
                     Christine Song
                 </div>
-                <div className = 'text-4xl text-[#D0D0D1]'>
+                <div className = 'text-3xl text-[#D0D0D1]'>
                     STUDENT DEVELOPER
                 </div>
             </div>
@@ -34,13 +34,11 @@ export default function Projects(){
 
 export function ProjectPreview({id, img_path, img_name, year, desc}){
     return(
-        <>
         <Link to = {`${id}`} className = "cor transform hover:scale-101 transition duration-200">
             <img src = {img_path} alt = {img_name} className = "rounded-2xl"/>
             <div className = " text-quasi-black dark:text-white text-2xl font-semibold  p-1 hover:text-accent">{img_name} <span className= " font-light">({year})</span></div>
-             <div className="text-quasi-black dark:text-white">{desc}</div>
+            <div className="text-quasi-black dark:text-white">{desc}</div>
         </Link>
-        </>
     )
 }
 
