@@ -8,7 +8,7 @@ export default function Profile(){
         <div className = "flex flex-col justify-center items-center w-full gap-10 my-20">
             <section className = 'flex w-9/12 justify-center items-center gap-10'>
                 <img src = {headshot} className = "rounded-2xl w-1/3"></img>
-                <div className = 'flex flex-col gap-5'>
+                <div className = 'flex flex-col gap-5 text-quasi-black dark:text-gray-back'>
                     <div className = 'text-4xl '>Hi, I'm Christine!</div>
                     <div>
                         I'm a third-year student at Stony Brook University studying Computer Science and Applied Mathematics & Statistics.
@@ -28,8 +28,8 @@ export default function Profile(){
                     </div>
                 </div>
             </section>
-            <section className = 'flex gap-10 items-center border-3 border-gray dark:border-black px-10 py-5 rounded-2xl'>
-                <div className = "text-center font-semibold text-2xl" >Get in Touch!</div>
+            <section className = 'flex gap-10 items-center border-2 border-quasi-black dark:border-gray-back px-10 py-5 rounded-2xl'>
+                <div className = "text-center font-semibold text-2xl text-quasi-black dark:text-gray-back" >Get in Touch!</div>
                 <div id = 'contactList' className = 'flex flex-col' >
                     <ContactItem faIcon = {faEnvelope} contactInfo = "christinesong08@gmail.com" contactLink = 'mailto:christinesong08@gmail.com'/>
                     <ContactItem faIcon = {faLinkedin} contactInfo = "www.linkedin.com/in/cesong/" contactLink = 'https://www.linkedin.com/in/cesong/'/>
@@ -46,7 +46,7 @@ function ContactItem({faIcon, contactInfo, contactLink}){
     return(
         <div className = 'contact-box flex gap-2 py-1 items-center hover:scale-105 cursor-pointer'>
             <FontAwesomeIcon icon = {faIcon} className = 'text-accent text-2xl'/>
-            <a href = {contactLink} target = '_blank' className = 'text-black dark:text-gray'>{contactInfo}</a>
+            <a href = {contactLink} target = '_blank' className = 'text-black-back dark:text-gray-back'>{contactInfo}</a>
         </div>
     )
 }

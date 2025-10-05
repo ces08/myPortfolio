@@ -15,7 +15,7 @@ export default function ProjectPage() {
 
 
   return (
-    <div className = 'p-10'>
+    <div className = 'p-10 text-quasi-black dark:text-white-back'>
       <div className = 'projectIntro flex items-center justify-between'>
         <div className = "text-5xl font-bold">{project.img_name}</div>
         <div className = 'tagContainer flex gap-5 flex-wrap'>
@@ -48,7 +48,7 @@ export default function ProjectPage() {
         
 
         <Header text = "BACKGROUND"/>
-        <section className = "project-sub">
+        <section className = "flex justify-center items-center w-full">
           <div className = "flex-col w-10/12">
             <div >{longer_desc}</div>
             <div className = ' my-5'> Learned how to: </div>
@@ -61,7 +61,7 @@ export default function ProjectPage() {
               {present.map(({ img, caption }, index) => (
                 <section key={index} className="flex items-center gap-5 justify-center w-10/12">
                   <div className = "text-4xs">{caption}</div>
-                  <img src={img} alt={caption} className="w-9/12 shadow border-1 border-gray rounded-2xl" />
+                  <img src={img} alt={caption} className="w-9/12 shadow border-1 border-gray-back rounded-2xl" />
                 </section>
           ))}
           </div>
@@ -74,7 +74,7 @@ export default function ProjectPage() {
 
 export function Tag({name}){
   return(
-    <div className="bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-2xl px-3 py-1">
+    <div className="bg-gray-200 text-quasi-black rounded-2xl px-3 py-1">
       {name}
     </div>
   )
@@ -84,7 +84,7 @@ export function Header({text}){
   return(
     <div className="flex items-center gap-2 my-10">
       <span className="font-bold text-2xl text-accent">{text}</span>
-      <div className="flex-1 h-px bg-gray"></div>
+      <div className="flex-1 h-px bg-gray-back"></div>
     </div>
   )
 }
