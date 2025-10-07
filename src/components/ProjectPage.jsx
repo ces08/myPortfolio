@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import {projects} from "../projectInfo.js";
 import {renderBold} from "../utils.jsx";
 
+
 export default function ProjectPage() {
   const params = useParams(); 
   const { id } = params;
@@ -13,12 +14,13 @@ export default function ProjectPage() {
   const demo_vid = project.demo;
   const longer_desc = project.longer_desc;
   const pdf = project.pdf ?? null;
+  const case_study = project.case_study ?? null;
 
   console.log(pdf);
 
 
   return (
-    <div className = 'p-10 text-quasi-black dark:text-white-back'>
+    <div className = 'p-10 text-quasi-black dark:text-white-back '>
       <div className = 'projectIntro flex items-center justify-between'>
         <div className = "text-5xl font-bold">{project.img_name}</div>
         <div className = 'tagContainer flex gap-5 flex-wrap'>
@@ -35,7 +37,7 @@ export default function ProjectPage() {
           <>
             <Header text="DEMO" />
             <div className="flex justify-center">
-              <video className="w-10/12 object-contain" controls >
+              <video className="w-8/12 object-contain" controls >
                 <source src={demo_vid} type="video/mp4" />
                 Your browser does not support the video.
               </video>
@@ -43,36 +45,45 @@ export default function ProjectPage() {
           </>
         ) : (
           <div className="flex justify-center">
-            <img src={project.cover} alt="Project cover" class = "w-10/12" />
+            <img src={project.cover} alt="Project cover" class = "w-8/12" />
           </div>
         )}
       </div>
 
-        
-
+      
         <Header text = "BACKGROUND"/>
         <section className = "flex justify-center items-center w-full">
-          <div className = "flex-col w-10/12">
+          <div className = "flex-col w-8/12">
             <div >{longer_desc}</div>
             <div className = ' my-5'> Learned how to: </div>
             <WhatILearned learned_arr = {project.learned}/>
           </div>
         </section>
+          {case_study ? <Header text = 'CASE STUDY'/>:<Header text = "DETAILS"/>}
 
-        <Header text = "DETAILS"/>
-        <div className = "presentation flex gap-10 justify-center items-center flex-col w-full">
+          {case_study ?  (
+            <div className = "flex justify-center w-full">
+              <CaseStudy data = {case_study} present = {present}/>
+            </div>
+
+          ):
+          
+          <div className = 'flex flex-col items-center w-full'>
+             <div className = "presentation flex gap-10 justify-center items-center flex-col w-8/12">
               {present.map(({ img, caption }, index) => (
-                <section key={index} className="flex items-center gap-5 justify-center w-10/12">
+                <section key={index} className="flex items-center gap-5 justify-center">
                   <div className = "text-4xs">{caption}</div>
                   <img src={img} alt={caption} className="w-9/12 shadow border-1 border-gray-back rounded-2xl" />
                 </section>
-          ))}
+              ))}
+              </div>
           </div>
+          }
           {pdf && (
             <>
               <Header text="REPORT" />
               <section className="flex justify-center items-center w-full">
-                <div className="flex-col w-10/12">
+                <div className="flex-col w-8/12">
                   <iframe src={pdf} height="600px" width = '100%' className = 'rounded-2xl'/>
                 </div>
               </section>
@@ -126,5 +137,77 @@ export function WhatILearned({learned_arr}){
 
       ))}
     </ul>
+  )
+}
+
+
+export function CaseStudy({ data, present }) {
+   return(
+      <div className="flex flex-col w-8/12 items-center">
+          <CaseStudySection title = 'Overview' text = {data.overview}/>
+          <CaseStudySection title = 'Problem' text = {data.problem}/>
+          <img src = {data.flaws} className = 'my-5 rounded-2xl'/>
+
+          <div className = 'my-5 w-full'>
+            <div className = 'caseStudy_head'>Question </div>
+            <section className= "border-2 border-accent text-center p-5 rounded-xl italic">{data.question}</section>
+          </div>
+         
+          <div className = 'my-5'>
+            <div className = 'caseStudy_head'>Details</div>
+            <div className = "presentation flex gap-10 justify-center items-center flex-col w-full">
+                {present.map(({ img, caption }, index) => (
+                  <section key={index} className="flex items-center gap-5 justify-center">
+                    <div className = "text-4xs">{caption}</div>
+                    <img src={img} alt={caption} className="w-9/12 rounded-2xl" />
+                  </section>
+            ))}
+            </div>
+          </div>
+
+          <div className = 'my-5'>
+            <div className = 'caseStudy_head'>Heuristic Evaluation</div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {data.heuristics.map((row, i) => (
+                <div
+                  key={i}
+                  className="border border-gray-back rounded-2xl p-4 shadow-sm hover:shadow-md transition bg-white"
+                >
+                  <div className="font-bold">{row.name}</div>
+                  <div className="text-4xs">{row.fix}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <CaseStudySection title = "Results" text = {data.results}/>
+
+          <div className = 'my-5'>
+            <div className = 'caseStudy_head'>Takeaways</div>
+            <ul>{data.takeaways.map((point, i)=>(
+              <li key = {i} className = 'list-decimal'>
+                <div className = 'font-bold  py-5'>
+                {point.title}
+                </div>
+                <div>
+                {point.desc}
+                </div>
+              </li>
+              
+            ))}</ul>
+          </div>
+        </div>
+    )
+      
+
+}
+
+
+export function CaseStudySection({title, text}){
+  return(
+    <div className = 'my-5'>
+    <div className = 'caseStudy_head'>{title}</div>
+    <section className="text-4xs">{text}</section>
+    </div>
   )
 }

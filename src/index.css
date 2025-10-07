@@ -25,3 +25,7 @@ body {
 button {
   @apply rounded-lg border font-bold cursor-pointer;
 }
+
+.caseStudy_head{
+  @apply font-semibold font-stretch-50% text-3xl my-5 underline decoration-accent;
+}
