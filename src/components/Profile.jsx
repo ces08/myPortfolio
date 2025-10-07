@@ -28,7 +28,7 @@ export default function Profile(){
                     </div>
                 </div>
             </section>
-            <section className = 'flex gap-10 items-center bg-gray-back dark:bg-quasi-black px-10 py-5 shadow rounded-2xl'>
+            <section className = 'flex gap-10 items-center bg-white dark:bg-quasi-black px-10 py-5 shadow-sm rounded-2xl'>
                 <div className = "text-center font-semibold text-2xl text-quasi-black dark:text-gray-back" >Get in Touch!</div>
                 <div id = 'contactList' className = 'flex flex-col' >
                     <ContactItem faIcon = {faEnvelope} contactInfo = "christinesong08@gmail.com" contactLink = 'mailto:christinesong08@gmail.com'/>

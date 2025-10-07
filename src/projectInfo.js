@@ -27,7 +27,7 @@ import nook_add from "./assets/projects/nook/nook_add.png";
 import nook_watchlist from "./assets/projects/nook/nook_watchlist.png";
 
 import report_pdf from "./assets/projects/pubLib/Nassau_PubLib_Report.pdf";
-
+import flaws from './assets/projects/pubLib/pubLib_flaws.png';
 
 
 import phreddit_demo from './assets/projects/videos/phreddit_demo.mov';
@@ -143,8 +143,67 @@ export const projects = {
         { img: pubLib_fees, caption: "Fee management page highlighting outstanding fines and a visual spread of borrowed books" },
         { img: pubLib_info, caption: "Information page provides hours, contact, and services all in one place" },
       ],
+      case_study: {
+        overview: `
+          The Nassau Public Library app, once rated only 2.3 stars on the App Store,
+          was plagued by an outdated interface and poor usability. 
+          My redesign introduces a modern, accessible, and intuitive interface 
+          that prioritizes user control, visual hierarchy, and minimalism.
+        `,
+
+        problem: `
+          Patrons struggled with navigation and information overload: 
+          critical features like the digital library card and event calendar 
+          were buried under multiple subdirectories. The inconsistent design 
+          and small text sizes particularly affected seniors and first-time users.
+        `,
+        flaws: flaws,
+        question: `
+          "How can we simplify the app's interface without compromising usability or discoverability?"
+        `,
+        research: `
+          I conducted a comparative analysis of popular apps such as Instagram, 
+          Barnes & Noble, Reddit, and Google Calendar to identify modern navigation 
+          patterns, iconography, and layout conventions. 
+          I also reviewed existing library apps and found similar outdated patterns.
+        `,
+
+        heuristics: [
+          { name: "H1 - Visibility of System Status", fix: "Added loading screens and feedback messages" },
+          { name: "H2 - Match System & Real World", fix: "Used real-world metaphors like cards and bookshelves" },
+          { name: "H3 - User Control & Freedom", fix: "Added back navigation and logout confirmation" },
+          { name: "H4 - Consistency & Standards", fix: "Standardized bottom navigation layout" },
+          { name: "H5 - Recognition over Recall", fix: "Introduced tag-based filters and visual cues" },
+          { name: "H8 - Aesthetic & Minimalist Design", fix: "Removed redundant text and used limited duotone color scheme" },
+        ],
+
+        results: `
+          The redesign improved navigability and accessibility for all users. 
+          The interface now adheres to modern app conventions while maintaining 
+          the library's welcoming aesthetic. It reduces user frustration and 
+          increases feature discoverability.
+        `,
+
+
+        takeaways: [
+        {
+          title:"Systematic design evaluation reveals hidden usability gaps",
+          desc: `Through heuristic evaluation alone, I learned how structured analysis can uncover troublesome points that aren't immediately visible through casual observation. 
+           Even without live user testing, this process highlighted inconsistencies and inefficiencies that directly informed the redesign. 
+           The next step would be validating these findings with real users and integrating feedback loops for continuous improvement.`,
+        },
+        {
+          title: "Small interface adjustments create large accessibility impact",
+          desc: `Redesigning the Nassau Public Library app taught me how small visual 
+          and structural changes -- like reducing icon color or flattening hierarchy --
+          can transform accessibility and usability. I developed a deeper understanding 
+          for how heuristic principles bridge aesthetics and function at a low cost. `,
+        },
+      ],
+      },
       pdf: report_pdf,
     },
+    
   nook:
     {
       img_name: "Nook",
@@ -161,7 +220,7 @@ export const projects = {
 
           Through building Nook, I learned the basics of frontend development, including 
           implementing dynamic functionality with JavaScript and styling with CSS. 
-          I also gain experience translating a fun idea into a polished, user-friendly web project that is both functional and engaging.`,
+          I also gained experience translating a fun idea into a polished, user-friendly web project that is both functional and engaging.`,
 
 
       learned: [
