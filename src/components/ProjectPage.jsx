@@ -37,7 +37,7 @@ export default function ProjectPage() {
           <>
             <Header text="DEMO" />
             <div className="flex justify-center">
-              <video className="w-8/12 object-contain" controls >
+              <video className="w-8/12 object-contain rounded-2xl" controls >
                 <source src={demo_vid} type="video/mp4" />
                 Your browser does not support the video.
               </video>
@@ -45,7 +45,7 @@ export default function ProjectPage() {
           </>
         ) : (
           <div className="flex justify-center">
-            <img src={project.cover} alt="Project cover" class = "w-8/12" />
+            <img src={project.cover} alt="Project cover" className = "w-8/12 rounded-2xl" />
           </div>
         )}
       </div>
@@ -171,7 +171,7 @@ export function CaseStudy({ data, present }) {
               {data.heuristics.map((row, i) => (
                 <div
                   key={i}
-                  className="border border-gray-back rounded-2xl p-4 shadow-sm hover:shadow-md transition bg-white"
+                  className="border border-gray-back rounded-2xl p-4 shadow-sm hover:shadow-md transition bg-white dark:bg-black-back"
                 >
                   <div className="font-bold">{row.name}</div>
                   <div className="text-4xs">{row.fix}</div>
