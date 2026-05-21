@@ -6,7 +6,7 @@
   --color-main: #7ca6fc;
   --color-accent: #7FD0E7;
   --color-dark-accent: #32B6DB;
-  --color-accent-hover: #7FD0E7;
+  --color-accent-hover: #8FAFB5;
   --color-file-tan: #F4EEE9;
   --color-sub: #d1ddf5;
   --color-gray-back: #f2f2f2;
@@ -22,10 +22,22 @@ body {
   background-color: var(--color-gray-theme);
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 button {
   @apply rounded-lg border font-bold cursor-pointer;
 }
 
 .caseStudy_head{
   @apply font-semibold font-stretch-50% text-3xl my-5 underline decoration-accent;
+}
+
+.carousel-btn {
+  @apply p-2 rounded-md bg-white/10 hover:bg-white/20 text-white transition flex-shrink-0 outline-none;
+}
+
+.navbar-tab{
+  @apply flex items-center h-10 hover:text-accent-hover
 }

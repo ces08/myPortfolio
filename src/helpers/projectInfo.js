@@ -1,42 +1,88 @@
-import phreddit_path from "./assets/projects/phreddit_mockup.png";
-import nook_path from "./assets/projects/nook_mockup.png";
-import flyspy_path from "./assets/projects/flyspy_mockup.png";
-import nassau_path from "./assets/projects/publib_mockup.png";
+import phreddit_path from "../assets/projects/phreddit/phreddit_mockup.png";
+import nook_path from "../assets/projects/nook/nook_mockup.png";
+import flyspy_path from "../assets/projects/flyspy/flyspy_mockup.png";
+import nassau_path from "../assets/projects/pubLib/publib_mockup.png";
+import vra_path from "../assets/projects/vra/vra_mockup.png";
 
 
-import phreddit_post from "./assets/projects/phreddit/phreddit_post.png";
-import phreddit_create_post from "./assets/projects/phreddit/phreddit_create_post.png";
-import phreddit_search from "./assets/projects/phreddit/phreddit_search.png";
-import phreddit_profile from "./assets/projects/phreddit/phreddit_profile.png";
+import phreddit_post from "../assets/projects/phreddit/phreddit_post.png";
+import phreddit_create_post from "../assets/projects/phreddit/phreddit_create_post.png";
+import phreddit_search from "../assets/projects/phreddit/phreddit_search.png";
+import phreddit_profile from "../assets/projects/phreddit/phreddit_profile.png";
 
 
-import flyspy_launch from "./assets/projects/flyspy/flyspy_launch_mock.png";
-import flyspy_form from "./assets/projects/flyspy/flyspy_form_mock.png";
-import flyspy_home from "./assets/projects/flyspy/flyspy_home_mock.png";
+import flyspy_launch from "../assets/projects/flyspy/flyspy_launch_mock.png";
+import flyspy_form from "../assets/projects/flyspy/flyspy_form_mock.png";
+import flyspy_home from "../assets/projects/flyspy/flyspy_home_mock.png";
 
 
-import pubLib_fees from "./assets/projects/videos/pubLib_fees.gif";
-import pubLib_home from "./assets/projects/videos/pubLib_home.gif";
-import pubLib_calendar from "./assets/projects/videos/pubLib_calendar.gif";
-import pubLib_info from "./assets/projects/videos/pubLib_info.gif";
-import pubLib_mock from "./assets/projects/pubLib/pubLib_mock.png";
+import pubLib_fees from "../assets/projects/videos/pubLib_fees.gif";
+import pubLib_home from "../assets/projects/videos/pubLib_home.gif";
+import pubLib_calendar from "../assets/projects/videos/pubLib_calendar.gif";
+import pubLib_info from "../assets/projects/videos/pubLib_info.gif";
+import pubLib_mock from "../assets/projects/pubLib/pubLib_mock.png";
 
-import nook_tracker from "./assets/projects/nook/nook_tracker.png";
-import nook_shows from "./assets/projects/nook/nook_shows.png";
-import nook_add from "./assets/projects/nook/nook_add.png";
-import nook_watchlist from "./assets/projects/nook/nook_watchlist.png";
+import nook_tracker from "../assets/projects/nook/nook_tracker.png";
+import nook_shows from "../assets/projects/nook/nook_shows.png";
+import nook_add from "../assets/projects/nook/nook_add.png";
+import nook_watchlist from "../assets/projects/nook/nook_watchlist.png";
 
-import report_pdf from "./assets/projects/pubLib/Nassau_PubLib_Report.pdf";
-import flaws from './assets/projects/pubLib/pubLib_flaws.png';
+import vra_districts from "../assets/projects/vra/vra_districts.png";
+import vra_ensembles from "../assets/projects/vra/vra_ensembles.png";
+import vra_gingles from "../assets/projects/vra/vra_gingles.png";
+import vra_minorityEffect from "../assets/projects/vra/vra_minorityEffect.png";
+import vra_choropleth from "../assets/projects/vra/vra_choropleth.png";
 
 
-import phreddit_demo from './assets/projects/videos/phreddit_demo.mov';
-import flyspy_demo from './assets/projects/videos/flyspy_demo.mov';
-import nook_demo from "./assets/projects/videos/nook_demo.mov";
+import report_pdf from "../assets/projects/pubLib/Nassau_PubLib_Report.pdf";
+import flaws from '../assets/projects/pubLib/pubLib_flaws.png';
+
+
+import phreddit_demo from '../assets/projects/videos/phreddit_demo.mov';
+import flyspy_demo from '../assets/projects/videos/flyspy_demo.mov';
+import nook_demo from "../assets/projects/videos/nook_demo.mov";
+import vra_demo from "../assets/projects/videos/vra_demo.mov";
 
 
 
 export const projects = {
+  vra:
+    {
+      img_name: "VRA Analysis",
+      img_path: vra_path,
+      year: 2026,
+      tags: ["ReactJS", "TailwindCSS", "Javascript", "MongoDB", "Spring", "D3.js"],
+      desc: "An application on dismissing Section 2 of the Voting Rights Act.",
+      demo: vra_demo,
+
+      longer_desc: `This application explores the implications of dismissing Section 2
+          of the Voting Rights Act on the political representation of minority communities, 
+          comparing states that historically required federal preclearance with those that did not. 
+          
+          Through this project, I gained experience in designing and developing data-driven user interfaces,
+          coordinating across computational and visualization workflows, translating complex political and statistical 
+          analyses into an accessible and cohesive platform, and presenting code, design decisions, and final deliverables for client evaluation.`
+        ,
+
+
+      learned: [
+        "Design **Spring Boot** backend services with caching **(@Cacheable)** to optimize queries",
+        "Implement JSON parsing and data seeding workflows using **Jackson JsonNode**",
+        "Develop **D3.js** visualizations for interactive, data-driven exploration",
+        "Collaborate in a team setting to integrate data analysis outputs into a full-stack application",
+        "Conduct code reviews, support design reviews using UML/sequence diagrams, and create Figma UI prototypes before implementation"
+      ],
+
+      presentation: [
+        { img: vra_districts, caption: "Explore the state's congressional districts, demographic representation, and electoral margins." },
+        { img: vra_choropleth, caption: "View a heatmap of minority demographic census distributions"},
+        { img: vra_gingles, caption: "Analyze racial polarization measures via precinct-level election results" },
+        { img: vra_ensembles, caption: "Visualize comparisons between VRA-Constrained and Race-Blind ensembles" },
+        { img: vra_minorityEffect, caption: "Interpret the VRA's impact on generating minority-effective district plans" },
+      ],
+      category: "Full-Stack"
+    },
+
   phreddit:
     {
       img_name: "Phreddit",
@@ -72,7 +118,8 @@ export const projects = {
         { img: phreddit_create_post, caption: "Create Post page: submit new content, add your own flairs" },
         { img: phreddit_search, caption: "Search functionality: find posts and comments easily" },
         { img: phreddit_profile, caption: "User Profile: view and edit your past activity, monitor your reputation"}
-      ]
+      ],
+      category: "Full-Stack"
     },
   flyspy: 
     {
@@ -103,8 +150,8 @@ export const projects = {
       { img: flyspy_launch, caption: "Sign in or continue as a guest, available in English and Chinese" },
       { img: flyspy_home, caption: "Keep track of your submissions, learn about the flies' characteristics and read about the mission" },
       { img: flyspy_form, caption: "Record your location via Apple/Google Maps, enable notifications to subscribe to the research progress" },
-       
-      ]
+      ],
+      category: "Mobile"
 
     },
 
@@ -202,6 +249,7 @@ export const projects = {
       ],
       },
       pdf: report_pdf,
+      category: "UI/UX"
     },
     
   nook:
@@ -235,7 +283,8 @@ export const projects = {
         { img: nook_watchlist, caption: "Enjoy a comprehensive tracker of all your current shows and OSTs" },
         { img: nook_shows, caption: "Keep track of all your documented moments"},
         { img: nook_add, caption: "Create a new post for a specific scene" },
-      ]
+      ],
+      category: "Front-End"
     },
   
 };

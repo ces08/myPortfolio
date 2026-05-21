@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
-import {projects} from "../projectInfo.js";
+import {projects} from "../helpers/projectInfo.js";
 import {renderBold} from "../utils.jsx";
-
+import { Carousel } from "./Carousel.jsx";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function ProjectPage() {
   const params = useParams(); 
   const { id } = params;
 
-  console.log(`here: ${id}`);
   const project = projects[id];
   const tags = project.tags;
   const present = project.presentation;
@@ -16,14 +17,27 @@ export default function ProjectPage() {
   const pdf = project.pdf ?? null;
   const case_study = project.case_study ?? null;
 
+  const [carouselIdx, setCarouselIdx] = useState(null);
+
+
   console.log(pdf);
 
 
   return (
-    <div className = 'p-10 text-quasi-black dark:text-white-back '>
+
+    <>
+    {carouselIdx !== null && present && (
+      <Carousel
+        slides={present}
+        startIdx={carouselIdx}
+        onClose={() => setCarouselIdx(null)}
+      />
+    )}
+
+    <div className = 'p-10 text-quasi-black dark:text-white-back mt-10'>
       <div className = 'projectIntro flex items-center justify-between'>
         <div className = "text-5xl font-bold">{project.img_name}</div>
-        <div className = 'tagContainer flex gap-5 flex-wrap'>
+        <div className = 'tagContainer flex gap-3 flex-wrap'>
           {
             tags.map(tag_name => <Tag name={tag_name} key={tag_name} />)
           }
@@ -63,18 +77,25 @@ export default function ProjectPage() {
 
           {case_study ?  (
             <div className = "flex justify-center w-full">
-              <CaseStudy data = {case_study} present = {present}/>
+              <CaseStudy data = {case_study} present = {present} onImageClick={setCarouselIdx} />
             </div>
 
           ):
           
           <div className = 'flex flex-col items-center w-full'>
-             <div className = "presentation flex gap-10 justify-center items-center flex-col w-8/12">
+             <div className = "presentation flex gap-10 justify-center items-center flex-col w-11/12">
               {present.map(({ img, caption }, index) => (
-                <section key={index} className="flex items-center gap-5 justify-center">
+                <motion.section
+                    key={index}
+                    className="flex flex-col items-center gap-5 justify-center"
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                >
                   <div className = "text-4xs">{caption}</div>
-                  <img src={img} alt={caption} className="w-9/12 shadow border-1 border-gray-back rounded-2xl" />
-                </section>
+                  <img src={img} alt={caption} className="w-9/12 shadow border-1 border-gray-back rounded-2xl cursor-zoom-in" onClick={() => setCarouselIdx(index)}/>
+                </motion.section>
               ))}
               </div>
           </div>
@@ -93,12 +114,14 @@ export default function ProjectPage() {
         
 
     </div>
+
+    </>
   );
 }
 
 export function Tag({name}){
   return(
-    <div className="bg-gray-200 text-quasi-black rounded-2xl px-3 py-1">
+    <div className="bg-gray-200 text-quasi-black rounded-2xl px-3 py-0.5">
       {name}
     </div>
   )
@@ -141,8 +164,9 @@ export function WhatILearned({learned_arr}){
 }
 
 
-export function CaseStudy({ data, present }) {
-   return(
+export function CaseStudy({ data, present, onImageClick }) {
+  
+    return(
       <div className="flex flex-col w-8/12 items-center">
           <CaseStudySection title = 'Overview' text = {data.overview}/>
           <CaseStudySection title = 'Problem' text = {data.problem}/>
@@ -159,7 +183,12 @@ export function CaseStudy({ data, present }) {
                 {present.map(({ img, caption }, index) => (
                   <section key={index} className="flex items-center gap-5 justify-center">
                     <div className = "text-4xs">{caption}</div>
-                    <img src={img} alt={caption} className="w-9/12 rounded-2xl" />
+                    <img
+                      src={img}
+                      alt={caption}
+                      className="w-9/12 rounded-2xl cursor-zoom-in"
+                      onClick={() => onImageClick(index)}
+                    />
                   </section>
             ))}
             </div>
@@ -211,3 +240,4 @@ export function CaseStudySection({title, text}){
     </div>
   )
 }
+

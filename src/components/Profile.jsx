@@ -1,53 +1,65 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin} from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import headshot from "../assets/headshot.jpg"
+import { infoCards } from '../helpers/profileInfo'
 
 export default function Profile(){
     return(
-        <div className = "flex flex-col justify-center items-center w-full gap-10 my-20">
-            <section className = 'flex w-9/12 justify-center items-center gap-10'>
-                <img src = {headshot} className = "rounded-2xl w-1/3 shadow"></img>
+        <div className = "flex flex-col justify-center items-center w-full h-10/12 gap-10 my-20">
+            <section className = 'flex w-10/12 justify-center items-center gap-10'>
+                <img src = {headshot} className = "rounded-2xl w-1/4 object-contain shadow"></img>
                 <div className = 'flex flex-col gap-5 text-quasi-black dark:text-gray-back'>
                     <div className = 'text-4xl '>Hi, I'm Christine!</div>
-                    <div>
-                        I'm a third-year student at Stony Brook University studying Computer Science and Applied Mathematics & Statistics.
+                    <InfoCards />
+                    <div className = 'flex flex-col justify-center items-center'>
+                        My journey in computer science started with nothing but the goal of recreating Wordle, armed with Python turtle graphics.
+                        When it finally worked, I remember thinking: 
+                        
+                        <span className = 'italic text-dark-accent dark:text-accent text-lg tracking-wider font-semibold'>"Wait, I can build anything!"</span>
+
+                        That euphoria never really subsided. Years later, I am drawn to the people behind the problems we solve, and I love developing things that 
+                        have the potential to touch people's lives, whether that's a polished application 
+                        or an experimental UI prototype.
                         <br/>
                         <br/>
-                        I've always loved creating — starting with crafts and drawings, slowly adding details until a project came to life. 
-                        That passion led me to software development where I could combine creativity
-                        and problem-solving to build tools that make real impacts.
-                    
-                        <br/>
-                        <br/>
-                        I've explored a variety of roles (from mobile and web development to machine learning)
-                        not only to gain broader perspective and discipline knowledge, but also because <span className = "text-dark-accent font-semibold">I genuinely enjoy stepping 
-                        into new challenges</span>. Each experience has taught me something new, 
-                        sharpened my skills, and reinforced my drive for building impactful software.
-                    
+                        Away from the keyboard, you'll find me drawing, reading, or hunting down good desserts ;) 
                     </div>
                 </div>
             </section>
-            <section className = 'flex gap-10 items-center bg-white dark:bg-quasi-black px-10 py-5 shadow-sm rounded-2xl'>
-                <div className = "text-center font-semibold text-2xl text-quasi-black dark:text-gray-back" >Get in Touch!</div>
-                <div id = 'contactList' className = 'flex flex-col' >
-                    <ContactItem faIcon = {faEnvelope} contactInfo = "christinesong08@gmail.com" contactLink = 'mailto:christinesong08@gmail.com'/>
-                    <ContactItem faIcon = {faLinkedin} contactInfo = "www.linkedin.com/in/cesong/" contactLink = 'https://www.linkedin.com/in/cesong/'/>
-                </div>
-            </section>
+
+            
+        
         </div>
         
         
        
     )
 }
+function InfoCards(){
 
-function ContactItem({faIcon, contactInfo, contactLink}){
     return(
-        <div className = 'contact-box flex gap-2 py-1 items-center hover:scale-105 cursor-pointer'>
-            <FontAwesomeIcon icon = {faIcon} className = 'text-accent text-2xl'/>
-            <a href = {contactLink} target = '_blank' className = 'text-black-back dark:text-gray-back'>{contactInfo}</a>
-        </div>
+        <section className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl">
+            {infoCards.map((card) => {
+                const Icon = card.icon;
+                return(
+                    <div
+                        key={card.label}
+                        className={`bg-white dark:bg-black-back rounded-lg p-3 flex items-start gap-2 border border-gray-200 dark:border-white/80`}
+                    >
+                        <div className={`bg-accent rounded-lg w-10 h-10 flex items-center justify-center text-xl flex-shrink-0`}>
+                            <Icon className = 'w-6 h-6 dark:text-black-back'/>
+                        </div>
+                        <div>
+                        <p className="text-xs font-semibold uppercase text-gray-400 dark:text-gray-400 mb-0.5">
+                            {card.label}
+                        </p>
+                        <p className="text-sm font-semibold text-quasi-black dark:text-gray-back">
+                            {card.title}
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{card.sub}</p>
+                        </div>
+                    </div>
+                )}
+            )}
+            
+        </section>
     )
 }
-
