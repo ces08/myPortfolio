@@ -38,13 +38,6 @@ import report_pdf from "../assets/projects/pubLib/Nassau_PubLib_Report.pdf";
 import flaws from '../assets/projects/pubLib/pubLib_flaws.png';
 
 
-import phreddit_demo from '../assets/projects/videos/phreddit_demo.mov';
-import flyspy_demo from '../assets/projects/videos/flyspy_demo.mov';
-import nook_demo from "../assets/projects/videos/nook_demo.mov";
-import vra_demo from "../assets/projects/videos/vra_demo.mov";
-
-
-
 export const projects = {
   vra:
     {
@@ -53,7 +46,7 @@ export const projects = {
       year: 2026,
       tags: ["ReactJS", "TailwindCSS", "Javascript", "MongoDB", "Spring", "D3.js"],
       desc: "An application on dismissing Section 2 of the Voting Rights Act.",
-      demo: vra_demo,
+      demo: 'https://player.cloudinary.com/embed/?cloud_name=djovos1ix&public_id=vra_demo_mfg4lw',
 
       longer_desc: `This application explores the implications of dismissing Section 2
           of the Voting Rights Act on the political representation of minority communities, 
@@ -90,7 +83,7 @@ export const projects = {
       year: 2025,
       tags: ["HTML/CSS", "JavaScript", "ReactJS", "Express", "MongoDB", "NodeJS"],
       desc: "A replica of the popular online community platform Reddit.",
-      demo: phreddit_demo,
+      demo: 'https://player.cloudinary.com/embed/?cloud_name=djovos1ix&public_id=Phreddit_demo_u2vzso',
 
       longer_desc: 
         `
@@ -145,7 +138,7 @@ export const projects = {
       ],
 
 
-      demo: flyspy_demo,
+      demo: 'https://player.cloudinary.com/embed/?cloud_name=djovos1ix&public_id=flyspy_demo_frtoue',
       presentation: [
       { img: flyspy_launch, caption: "Sign in or continue as a guest, available in English and Chinese" },
       { img: flyspy_home, caption: "Keep track of your submissions, learn about the flies' characteristics and read about the mission" },
@@ -259,7 +252,7 @@ export const projects = {
       year: 2024,
       tags: ["HTML/CSS", "Javascript"],
       desc: "A website to organize your shows, soundtracks, and ratings in one place.",
-      demo: nook_demo,
+      demo: 'https://player.cloudinary.com/embed/?cloud_name=djovos1ix&public_id=nook_demo_ygmpor',
 
       longer_desc: `Nook is a web application designed to consolidate the various aspects of 
           the show experience —-from visuals to audio —- into one place. Users can list their shows, 

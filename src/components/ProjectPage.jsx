@@ -51,10 +51,12 @@ export default function ProjectPage() {
           <>
             <Header text="DEMO" />
             <div className="flex justify-center">
-              <video className="w-8/12 object-contain rounded-2xl" controls >
-                <source src={demo_vid} type="video/mp4" />
-                Your browser does not support the video.
-              </video>
+              <iframe
+                src={demo_vid}
+                className="w-8/12 rounded-2xl aspect-video"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+              />
             </div>
           </>
         ) : (

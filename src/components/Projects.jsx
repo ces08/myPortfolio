@@ -1,4 +1,4 @@
-import {projects} from "../projectInfo.js"
+import {projects} from "../helpers/projectInfo.js"
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
